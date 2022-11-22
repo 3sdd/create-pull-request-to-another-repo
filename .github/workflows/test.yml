@@ -31,26 +31,12 @@ jobs:
         repository: 3sdd/create-pull-request-to-another-repo-target
         ref: main
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-    - name: print
-      run: |
-        pwd
-        cd source
-        ls -la
-        cd ../target
-        ls -la
     - name: copy schema file
       run: cp source/schema.yml target/schema.yml
-    - name: print
-      run: |
-        pwd
-        cd source
-        ls -la
-        cd ../target
-        ls -la
     - name: setup git config
       run: |
-        git config --global user.name "3sdd"
-        git config --global user.email "56486103+3sdd@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
     - name: commit
       working-directory: target
       env:
@@ -69,7 +55,8 @@ jobs:
         echo "push"
         git push origin test-branch
     - name: create pull request
+      working-directory: target
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
-      run: gh pr create --title "プルリクエスト作成テスト" --body "プルリクエスト作成テスト　body" --base "main" --repo "3sdd/create-pull-request-to-another-repo-target"
+      run: gh pr create --title "スキーマ更新" --body "内容" --base "main" --repo "3sdd/create-pull-request-to-another-repo-target"
 
