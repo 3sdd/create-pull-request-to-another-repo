@@ -2,11 +2,22 @@ name: test-name
 
 on: [push]
 
-permissions: write-all
 
 jobs:
   test-job:
     runs-on: ubuntu-latest
+
+    permissions:
+     actions: write
+     checks: write
+     contents: write
+     deployments: write
+     issues: write
+     packages: write
+     pull-requests: write
+     repository-projects: write
+     security-events: write
+     statuses: write
 
     steps:
     - name: "checkout: source repo"
