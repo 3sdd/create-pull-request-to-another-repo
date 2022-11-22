@@ -2,7 +2,6 @@ name: test-name
 
 on: [push]
 
-
 jobs:
   test-job:
     runs-on: ubuntu-latest
@@ -43,7 +42,7 @@ jobs:
         TARGET_REPOSITORY: 3sdd/create-pull-request-to-another-repo-target
         PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
-        git remote set-url origin https://3sdd:$PERSONAL_ACCESS_TOKEN@github.com/$TARGET_REPOSITORY
+        git remote set-url origin https://github.com/$TARGET_REPOSITORY
         git fetch
         echo "checkout"
         git checkout test-branch
@@ -51,12 +50,12 @@ jobs:
         git add ./schema.yml
         git status
         echo "commit"
-        git commit -m "updat schema"
+        git commit -m "スキーマ更新"
         echo "push"
         git push origin test-branch
     - name: create pull request
       working-directory: target
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
-      run: gh pr create --title "スキーマ更新" --body "内容" --base "main" --repo "3sdd/create-pull-request-to-another-repo-target"
+      run: gh pr create --title "スキーマ更新" --body "更新" --base "main" --repo "3sdd/create-pull-request-to-another-repo-target"
 
