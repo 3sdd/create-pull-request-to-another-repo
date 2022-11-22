@@ -13,4 +13,6 @@ jobs:
     - name: print
       run: echo "テスト"
     - name: create pull request
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: gh pr create --title "プルリクエスト作成テスト" --body "プルリクエスト作成テスト　body" --base "main"
