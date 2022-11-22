@@ -15,4 +15,5 @@ jobs:
     - name: create pull request
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: gh pr create --title "プルリクエスト作成テスト" --body "プルリクエスト作成テスト　body" --base main --head develop
+      run: gh pr create --title "プルリクエスト作成テスト" --body "プルリクエスト作成テスト　body" --base "main" --repo "3sdd/create-pull-request-to-another-repo-target"
+
