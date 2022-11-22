@@ -34,6 +34,15 @@ jobs:
         ls -la
         cd ../target
         ls -la
+    - name: setup git config
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+    - name: commit
+      working-directory: target
+      run: |
+        git add ./schema.yml
+        git commit -m "updat schema"
     - name: create pull request
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
