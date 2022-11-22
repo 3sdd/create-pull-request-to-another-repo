@@ -29,6 +29,8 @@ jobs:
       with:
         path: target
         repository: 3sdd/create-pull-request-to-another-repo-target
+        ref: main
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
     - name: print
       run: |
         pwd
