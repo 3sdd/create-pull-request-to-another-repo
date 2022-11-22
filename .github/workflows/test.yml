@@ -44,10 +44,15 @@ jobs:
         PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
         git remote set-url origin https://3sdd:$PERSONAL_ACCESS_TOKEN@github.com/3sdd/create-pull-request-to-another-repo-target
+        git fetch
+        echo "checkout"
         git checkout test-branch
+        echo "add schema"
         git add ./schema.yml
         git status
+        echo "commit"
         git commit -m "updat schema"
+        echo "push"
         git push --set-upstream origin test-branch
     - name: create pull request
       env:
