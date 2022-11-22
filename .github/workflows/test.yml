@@ -41,8 +41,11 @@ jobs:
     - name: commit
       working-directory: target
       run: |
+        git remote -v
         git add ./schema.yml
+        git status
         git commit -m "updat schema"
+        git push --set-upstream origin main
     - name: create pull request
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
