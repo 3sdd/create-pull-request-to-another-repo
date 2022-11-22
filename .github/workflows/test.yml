@@ -9,12 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/checkout@v3
+    - name: "checkout: source repo"
+      uses: actions/checkout@v3
       with:
+        path: source
+    - name: "checkout: target repo"
+      uses: actions/checkout@v3
+      with:
+        path: target
         repository: 3sdd/create-pull-request-to-another-repo-target
     - name: print
-      run: ls
+      run: |
+        pwd
+        ls -la
     - name: create pull request
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
