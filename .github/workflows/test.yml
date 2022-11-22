@@ -52,7 +52,7 @@ jobs:
         echo "commit"
         git commit -m "スキーマ更新"
         echo "push"
-        git push origin test-branch
+        git push origin -u test-branch
     - name: create pull request
       working-directory: target
       env:
