@@ -21,7 +21,10 @@ jobs:
     - name: print
       run: |
         pwd
+        cd source
         ls -la
+        cd ../target
+        ls -la        
     - name: create pull request
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
