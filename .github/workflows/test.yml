@@ -10,8 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
+      with:
+        repository: 3sdd/create-pull-request-to-another-repo-target
     - name: print
-      run: echo "テスト"
+      run: ls
     - name: create pull request
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
