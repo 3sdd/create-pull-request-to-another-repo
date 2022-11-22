@@ -40,8 +40,10 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
     - name: commit
       working-directory: target
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
-        git remote set-url origin https://3sdd:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/3sdd/create-pull-request-to-another-repo-target
+        git remote set-url origin https://3sdd:$PERSONAL_ACCESS_TOKEN@github.com/3sdd/create-pull-request-to-another-repo-target
         git add ./schema.yml
         git status
         git commit -m "updat schema"
