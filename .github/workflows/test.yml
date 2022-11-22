@@ -47,7 +47,7 @@ jobs:
         git add ./schema.yml
         git status
         git commit -m "updat schema"
-        git push --set-upstream origin test
+        git push --set-upstream origin main
     - name: create pull request
       env:
         GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN  }}
