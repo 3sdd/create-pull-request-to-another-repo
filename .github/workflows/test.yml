@@ -13,7 +13,4 @@ jobs:
     - name: print
       run: echo "テスト"
     - name: create pull request
-      run: gh pr create \
-        --title "プルリクエスト作成テスト" \
-        --body "プルリクエスト作成テスト　body" \
-        --base "main"
+      run: gh pr create --title "プルリクエスト作成テスト" --body "プルリクエスト作成テスト　body" --base "main"
