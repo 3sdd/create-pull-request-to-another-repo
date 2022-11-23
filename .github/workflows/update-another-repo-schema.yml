@@ -1,6 +1,9 @@
 name: test-name
 
-on: [push]
+on:
+  push:
+    paths:
+      - "./schema.yml"
 
 jobs:
   test-job:
