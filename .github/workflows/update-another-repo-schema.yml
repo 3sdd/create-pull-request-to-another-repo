@@ -50,8 +50,8 @@ jobs:
       run: |
         git remote set-url origin https://github.com/$TARGET_REPOSITORY
         git fetch
-        echo "checkout"
-        git checkout $TARGET_PUSH_BRANCH_NAME
+        echo "switch branch"
+        git switch -c $TARGET_PUSH_BRANCH_NAME
         echo "add schema"
         git add ./schema.yml
         git status
