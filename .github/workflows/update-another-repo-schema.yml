@@ -5,6 +5,9 @@ on:
     paths:
       - "schema.yml"
 
+env:
+  TARGET_PUSH_BRANCH_NAME: test-branch
+
 jobs:
   test-job:
     runs-on: ubuntu-latest
@@ -48,14 +51,14 @@ jobs:
         git remote set-url origin https://github.com/$TARGET_REPOSITORY
         git fetch
         echo "checkout"
-        git checkout test-branch
+        git checkout $TARGET_PUSH_BRANCH_NAME
         echo "add schema"
         git add ./schema.yml
         git status
         echo "commit"
         git commit -m "スキーマ更新"
         echo "push"
-        git push origin -u test-branch
+        git push origin -u $TARGET_PUSH_BRANCH_NAME
     - name: create pull request
       working-directory: target
       env:
